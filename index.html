@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshita Singh | Cyber Security Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+body{
+  margin:0;
+  background:#050505;
+  font-family:'Share Tech Mono',monospace;
+  color:#00ffc8;
+}
+/* MATRIX */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+/* LAYOUT */
+.container{
+  display:flex;
+  height:100vh;
+}
+.left{
+  width:30%;
+  background:#080808;
+  padding:30px;
+  border-right:1px solid #00ffff33;
+  overflow-y:auto;
+}
+.right{
+  width:70%;
+  padding:40px;
+  overflow-y:auto;
+}
+/* PROFILE */
+.profile{
+  width:180px;
+  border-radius:12px;
+  border:2px solid #00ffc8;
+  box-shadow:0 0 15px #00ffc8;
+}
+h1{
+  font-family:Orbitron;
+  color:white;
+  margin-bottom:5px;
+}
+.icons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:10px;
+}
+.icons img{
+  width:28px;
+  margin:10px 5px 10px 0;
+  filter:invert(1);
+  cursor:pointer;
+  transition: transform 0.5s ease;
+  animation: pop 1.2s infinite alternate;
+}
+@keyframes pop{
+  0% {transform: translateY(0px);}
+  100% {transform: translateY(-10px);}
+}
+.icons img:hover{
+  transform: scale(1.5);
+}
+/* SKILLS */
+.skill{
+  margin:10px 0;
+}
+.skill-name{
+  font-size:0.9em;
+  margin-bottom:3px;
+}
+.skill-bar{
+  background:#0a0a0a;
+  border:1px solid #00ffc8;
+  border-radius:20px;
+  height:14px;
+  width:100%;
+  position:relative;
+  overflow:hidden;
+}
+.skill-progress{
+  height:100%;
+  border-radius:20px;
+  width:0%;
+  background: linear-gradient(90deg, #00ffc8, #ff00ff);
+  animation: fill 1.5s forwards;
+}
+@keyframes fill{
+  0% {width:0%;}
+  100% {width: var(--percent);}
+}
+/* TERMINAL */
+.terminal{
+  background:#000;
+  border:1px solid #00ffc8;
+  padding:20px;
+  height:420px;
+  overflow:auto;
+  box-shadow:0 0 10px #00ffc833 inset;
+}
+/* BUTTONS */
+.cmdbar{
+  margin-top:20px;
+}
+.cmd{
+  display:inline-block;
+  padding:8px 16px;
+  border:1px solid #ff00ff66;
+  margin:6px;
+  cursor:pointer;
+  color:#00ffc8;
+  transition:0.3s;
+}
+.cmd:hover{
+  background:#ff00ff;
+  color:black;
+  box-shadow:0 0 10px #ff00ff;
+}
+/* CYBER PANEL */
+.panel{
+  border:1px solid #00ffc8;
+  margin-top:10px;
+  padding:15px;
+  background:#0a0a0a;
+  box-shadow:0 0 10px #00ffc822;
+}
+.title{
+  color:#ff00ff;
+  font-family:Orbitron;
+  margin-bottom:10px;
+}
+a{
+  color:#00ffc8;
+  text-decoration:none;
+}
+a:hover{
+  text-decoration:underline;
+}
+</style>
+</head>
+<body>
+<canvas id="matrix"></canvas>
+<div class="container">
+<!-- LEFT PANEL -->
+<div class="left">
+<center>
+<img src="profile.jpg" class="profile">
+<h1>Harshita Singh</h1>
+Cyber Security Analyst
+<br><br>
+📞 +91-8447084927  
+<br>
+✉ your-singhharshita1234@gmail.com
+<div class="icons">
+<a href="https://github.com/harshita401" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png"></a>
+<a href="https://linkedin.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"></a>
+<a href="https://medium.com/@singhharshita1234" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968906.png"></a>
+</div>
+<!-- SKILLS -->
+<h3 style="color:#00ffc8;margin-top:20px;">Skills</h3>
+<div class="skill"><div class="skill-name">Critical Thinking</div><div class="skill-bar"><div class="skill-progress" style="--percent:90%"></div></div></div>
+<div class="skill"><div class="skill-name">Decision Making</div><div class="skill-bar"><div class="skill-progress" style="--percent:85%"></div></div></div>
+<div class="skill"><div class="skill-name">Communication</div><div class="skill-bar"><div class="skill-progress" style="--percent:88%"></div></div></div>
+<div class="skill"><div class="skill-name">Multi-tasking</div><div class="skill-bar"><div class="skill-progress" style="--percent:80%"></div></div></div>
+<div class="skill"><div class="skill-name">Jira</div><div class="skill-bar"><div class="skill-progress" style="--percent:75%"></div></div></div>
+<div class="skill"><div class="skill-name">Quick Learner</div><div class="skill-bar"><div class="skill-progress" style="--percent:85%"></div></div></div>
+<div class="skill"><div class="skill-name">Kali Linux</div><div class="skill-bar"><div class="skill-progress" style="--percent:90%"></div></div></div>
+</center>
+</div>
+<!-- RIGHT PANEL -->
+<div class="right">
+<div class="terminal" id="terminal">
+<div>Initializing Cyber Console...</div>
+<div>Type <b>help</b> or click a command</div>
+</div>
+<div>
+<span>> </span>
+<input id="command" style="background:black;border:none;color:#00ffc8;width:90%;outline:none">
+</div>
+<div class="cmdbar">
+<div class="cmd" onclick="run('help')">help</div>
+<div class="cmd" onclick="run('about')">about</div>
+<div class="cmd" onclick="run('experience')">experience</div>
+<div class="cmd" onclick="run('education')">education</div>
+<div class="cmd" onclick="run('certificates')">certificates</div>
+<div class="cmd" onclick="run('blogs')">blogs</div>
+<div class="cmd" onclick="run('achievements')">achievements</div>
+<div class="cmd" onclick="run('clear')">clear</div>
+</div>
+</div>
+</div>
+<script>
+var term=document.getElementById("terminal");
+
+function randomColor(){
+  let letters='0123456789ABCDEF';
+  let color='#';
+  for(let i=0;i<6;i++){ color+=letters[Math.floor(Math.random()*16)]; }
+  return color;
+}
+
+function run(cmd){
+  let color = randomColor();
+  term.innerHTML+=`<div style="color:${color}">> ${cmd}</div>`;
+
+  if(cmd==="about"){
+    term.innerHTML+=`<div class="panel" style="color:${randomColor()}"><div class="title">About Me</div><ul>
+<li>Certified Ethical Hacker with 2+ years experience</li>
+<li>Conduct vulnerability assessments & penetration testing across web apps, APIs & mobile platforms</li>
+</ul></div>`;
+  }
+  if(cmd==="experience"){
+    term.innerHTML+=`<div class="panel" style="color:${randomColor()}"><div class="title">Professional Experience</div><ul>
+<li>Cybersecurity Analyst at TalaKunchi Networks Pvt Ltd (Feb 2025 - Jul 2025)</li>
+<li>Conduct vulnerability assessments</li>
+<li>Perform web & API pentesting</li>
+<li>Security risk analysis</li>
+<li>Reporting & remediation guidance</li>
+</ul></div>`;
+  }
+  if(cmd==="education"){
+    term.innerHTML+=`<div class="panel" style="color:${randomColor()}"><div class="title">Education</div><ul>
+<li>B.Tech Computer Science – K.R. Mangalam University (2018 – 2022)</li>
+<li>GPA: 7.36 / 10</li>
+</ul></div>`;
+  }
+  if(cmd==="certificates"){
+    term.innerHTML+=`<div class="panel" style="color:${randomColor()}"><div class="title">Certificates</div><ul>
+<li>Certified Ethical Hacker – Credential ID: ECC6479380251</li>
+<li>Certified Cloud Security Practitioner – Credential ID: 7562152</li>
+<li>EC-Council Ethical Hacking Essentials – Certificate no. 317377</li>
+<li>AWS Security Fundamentals – Second Edition</li>
+</ul></div>`;
+  }
+  if(cmd==="blogs"){
+    term.innerHTML+=`<div class="panel" style="color:${randomColor()}"><div class="title">Blogs</div><ul>
+<li><a href="https://medium.com/@singhharshita1234/mastering-android-pentesting-taking-your-skills-to-the-next-level-1c16f15fc8e6" target="_blank">Mastering Android Pentesting: Taking Your Skills to the Next Level</a></li>
+<li><a href="https://medium.com/@singhharshita1234/navigating-the-potential-of-ai-factoring-fiction-from-reality-587721b320f8" target="_blank">Navigating the Potential of AI: Factoring Fiction from Reality</a></li>
+<li><a href="https://medium.com/@singhharshita1234/getting-started-with-android-penetration-testing-a-comprehensive-guide-d06fbaaf8c1a" target="_blank">Getting Started with Android Penetration Testing: A Comprehensive Guide</a></li>
+<li><a href="https://medium.com/@singhharshita1234/nurturing-your-mental-well-being-982ced969d4" target="_blank">Nurturing Your Mental Well-being</a></li>
+</ul>
+<div style="margin-top:8px;font-size:0.85em;color:#ff00ff;">*The links above are clickable – click to open and read the blog.*</div>
+</div>`;
+  }
+  if(cmd==="achievements"){
+    term.innerHTML+=`<div class="panel" style="color:${randomColor()}"><div class="title">Achievements</div><ul>
+<li>HOF in Samsung</li>
+<li>HOF in Packagist</li>
+</ul></div>`;
+  }
+  if(cmd==="help"){
+    term.innerHTML+=`<div class="panel" style="color:${randomColor()}"><div class="title">Available Commands</div><ul>
+<li>about</li><li>experience</li><li>education</li><li>certificates</li><li>blogs</li><li>achievements</li><li>clear</li>
+</ul></div>`;
+  }
+  if(cmd==="clear"){ term.innerHTML=""; }
+
+  term.scrollTop=term.scrollHeight;
+}
+
+document.getElementById("command").addEventListener("keypress",function(e){
+  if(e.key==="Enter"){ run(this.value); this.value=""; }
+});
+
+/* MATRIX */
+var canvas=document.getElementById("matrix");
+var ctx=canvas.getContext("2d");
+canvas.height=window.innerHeight;
+canvas.width=window.innerWidth;
+var letters="01".split("");
+var fontSize=14;
+var columns=canvas.width/fontSize;
+var drops=[];
+for(var x=0;x<columns;x++) drops[x]=1;
+function draw(){
+  ctx.fillStyle="rgba(0,0,0,0.05)";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#00ffc8";
+  ctx.font=fontSize+"px monospace";
+  for(var i=0;i<drops.length;i++){
+    var text=letters[Math.floor(Math.random()*letters.length)];
+    ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+    if(drops[i]*fontSize>canvas.height&&Math.random()>0.975) drops[i]=0;
+    drops[i]++;
+  }
+}
+setInterval(draw,33);
+</script>
+</body>
+</html>
